@@ -1,0 +1,22 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-title>Registra Actividad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+
+  <ion-button expand="block" fill="solid" size="small" (click)="Cargar()"> Cargar </ion-button>
+
+  <ion-item>
+    <ion-label>Actividades</ion-label>
+    <ion-select>
+      <ion-select-option *ngFor="let item of actividades"> {{ item.Actividad }} </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br>
+  <br>
+  <br>
+  <ion-button expand="block" fill="solid" size="small" (click)="Registrar()"> Remover </ion-button>
+
+</ion-content>

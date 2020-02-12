@@ -1,0 +1,7 @@
+{
+  "name": "ActividadesDiarias",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

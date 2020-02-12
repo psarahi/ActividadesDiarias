@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 import { DataService } from './data.service';
 import { Actividades } from '../Modelos/actividades';
 import { Proyectos } from '../Modelos/proyectos';
+import { forkJoin, Observable } from 'rxjs';
 //import { async } from '@angular/core/testing';
 
 @Injectable({
@@ -18,9 +19,9 @@ export class DatalocalService {
     private toastCtrl: ToastController
   ) { }
 
-  cargarLocalStorage() {
-    //this.storage.remove('actividades');
-    //this.storage.remove('proyectos');
+  cargarLocalStorage(): Observable<any> {
+    // this.storage.remove('actividades');
+    // this.storage.remove('proyectos');
 
     this.dataService.getAll()
       .subscribe(
@@ -30,12 +31,13 @@ export class DatalocalService {
           this.storage.set('proyectos', data[1]);
 
 
-          
+
           this.presentToast('Datos Cargados');
 
         }
       );
 
+    return forkJoin(this.storage.get('actividades'), this.storage.get('proyectos'));
 
   }
 

@@ -6,7 +6,20 @@
 
 <ion-content class="ion-no-padding">
 
-  <ion-button expand="block" fill="solid" size="small" (click)="Cargar()"> Cargar </ion-button>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" style="text-align: left;">
+        <ion-button (click)="Cargar()" color="success">
+          <ion-icon slot="icon-only" name="cloud-download"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6" style="text-align: right;">
+        <ion-button color="secondary">
+          <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <ion-item>
     <ion-label>Actividades</ion-label>
@@ -17,6 +30,30 @@
   <br>
   <br>
   <br>
-  <ion-button expand="block" fill="solid" size="small" (click)="Registrar()"> Remover </ion-button>
+  <ion-button (click)="Registrar()" color="danger">
+    <ion-icon slot="icon-only" name="trash"></ion-icon>
+  </ion-button>
 
 </ion-content>
+
+<ion-bottom-drawer
+  style="box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px -4px 8px rgba(0, 0, 0, 0.04), 0px -12px 32px rgba(0, 0, 0, 0.04);"
+  [(state)]="drawerState" [minimumHeight]="minimumHeight" [dockedHeight]="dockedHeight" [shouldBounce]="shouldBounce"
+  [distanceTop]="distanceTop">
+  <div class="drawer-content">
+    <ion-title>Registrar</ion-title>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        <ion-card-title>Card Title</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        Keep close to Nature's heart... and break clear away, once in awhile,
+        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-bottom-drawer>

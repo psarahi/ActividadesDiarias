@@ -8,12 +8,14 @@ import { RegistroPageRoutingModule } from './registro-routing.module';
 
 import { RegistroPage } from './registro.page';
 import { IonicStorageModule } from '@ionic/storage';
+import { IonBottomDrawerModule } from 'ion-bottom-drawer';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    IonBottomDrawerModule,
     RegistroPageRoutingModule,
     IonicStorageModule.forRoot(),
   ],

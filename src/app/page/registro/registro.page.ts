@@ -21,19 +21,22 @@ export class RegistroPage implements OnInit {
 
   async ngOnInit() {
 
-    this.actividades = await this.storage.get('actividades');
+    //this.actividades = await this.storage.get('actividades');
 
-    console.log(this.actividades);
+    // console.log(this.actividades);
 
   }
 
   async Cargar() {
 
     this.dataService.cargarLocalStorage();
-     // debugger;
-    this.actividades = await this.storage.get('actividades');
 
-    console.log(this.actividades);
+    console.log(this.storage.get('actividades'));
+
+    // debugger;
+    // this.actividades = await this.storage.get('actividades');
+
+    // console.log(this.actividades);
 
   }
 

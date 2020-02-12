@@ -28,10 +28,11 @@ export class DatalocalService {
           // debugger;
           this.storage.set('actividades', data[0]);
           this.storage.set('proyectos', data[1]);
+
+
+          
           this.presentToast('Datos Cargados');
 
-          // this.actividades = await this.storage.get('actividades');
-          // this.proyectos = await this.storage.get('proyectos');
         }
       );
 

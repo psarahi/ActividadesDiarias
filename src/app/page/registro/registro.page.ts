@@ -27,7 +27,7 @@ export class RegistroPage implements OnInit {
   minimumHeight = 50;
 
   actividades: Actividades[] = [];
-  // proyectos: Proyectos[] = [];
+  proyectos: Proyectos[] = [];
 
   constructor(
     private storage: Storage,
@@ -55,7 +55,9 @@ export class RegistroPage implements OnInit {
     console.log(this.storage.get('actividades'));
 
     // debugger;
-    // this.actividades = await this.storage.get('actividades');
+    this.actividades = await this.storage.get('actividades');
+
+    this.proyectos = await this.storage.get('proyectos');
 
     // console.log(this.actividades);
 

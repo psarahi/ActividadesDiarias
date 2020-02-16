@@ -43,17 +43,37 @@
   <div class="drawer-content">
     <ion-title>Registrar</ion-title>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
+    <form action="">
 
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      </ion-card-content>
-    </ion-card>
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime display-format="YYYY-MM-DD" max="2100-12-31"></ion-datetime>
+      </ion-item>
 
+      <ion-item>
+        <ion-label>Proyectos</ion-label>
+        <ion-select>
+          <ion-select-option *ngFor="let p of proyectos"> {{ p.Proyecto }} </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Actividades</ion-label>
+        <ion-select>
+          <ion-select-option *ngFor="let a of actividades" > {{ a.Actividad }} </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium" position="floating">Description</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium" position="floating">Tiempo</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-button>
+        <ion-icon slot="icon-only" name="save"></ion-icon>
+      </ion-button>
+    </form>
   </div>
 </ion-bottom-drawer>

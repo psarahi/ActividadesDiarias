@@ -15,6 +15,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { IonBottomDrawerModule } from 'ion-bottom-drawer';
 
+import { SQLite } from '@ionic-native/sqlite/ngx';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,6 +31,7 @@ import { IonBottomDrawerModule } from 'ion-bottom-drawer';
   providers: [
     StatusBar,
     IonBottomDrawerModule,
+    SQLite,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

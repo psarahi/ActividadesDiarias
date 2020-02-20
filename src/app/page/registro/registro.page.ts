@@ -45,7 +45,7 @@ export class RegistroPage implements OnInit {
   ) {
 
     this.platform.ready().then(() => {
-      this.createDB();
+      this.createBaseDatos();
     }).catch(error => {
       console.log(error);
     })
@@ -64,7 +64,25 @@ export class RegistroPage implements OnInit {
     alert('Test');
   }
 
-  createDB() {
+  createBaseDatos() {
+
+    /*
+        this.sqlite.create({
+          name: 'data.db',
+          location: 'default'
+        })
+          .then((db: SQLiteObject) => {
+    
+    
+            db.executeSql('create table danceMoves(name VARCHAR(32))', [])
+              .then(() => console.log('Executed SQL'))
+              .catch(e => console.log(e));
+    
+    
+          })
+          .catch(e => console.log(e));*/
+
+
     this.sqlite.create({
       name: this.database_name,
       location: 'default'

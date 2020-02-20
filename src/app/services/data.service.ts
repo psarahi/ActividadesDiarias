@@ -22,4 +22,11 @@ export class DataService {
     );
 
   }
+
+  verificar(usuario, password) {
+    console.log(`${apiUrl}/EMPLEADOS?filter[where][Activo]=1&filter[where][Nombre_Usuario]=${usuario}&filter[where][Password]=${password}`);
+
+    return this.http.get(`${apiUrl}/EMPLEADOS?filter[where][Activo]=1&filter[where][Nombre_Usuario]=${usuario}&filter[where][Password]=${password}`);
+
+  }
 }

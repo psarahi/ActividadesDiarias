@@ -1,0 +1,135 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" style="text-align: left;">
+        <ion-button (click)="Cargar()" color="success">
+          <ion-icon slot="icon-only" name="cloud-download"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6" style="text-align: right;">
+        <ion-button color="secondary">
+          <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item>
+    <ion-label>Actividades</ion-label>
+    <ion-select>
+      <ion-select-option *ngFor="let item of actividades"> {{ item.Actividad }} </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br>
+  <br>
+  <br>
+  <ion-button expand="block" (click)="alert()">Test</ion-button>
+
+  <ion-button (click)="Registrar()" color="danger">
+    <ion-icon slot="icon-only" name="trash"></ion-icon>
+  </ion-button>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <ion-button expand="block" (click)="createBaseDatos()">
+    Create DataBase
+  </ion-button>
+
+  <ion-button expand="block" (click)="createTable()">
+    Create Table
+  </ion-button>
+
+  <ion-button expand="block" (click)="getRows()">
+    Get Rows
+  </ion-button>
+
+
+  <ion-item-divider>
+    <ion-input placeholder="Enter Name" [(ngModel)]="name_model"></ion-input>
+    <ion-button expand="block" (click)="insertRow()">
+      Insert Row
+    </ion-button>
+  </ion-item-divider>
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        Row ID
+      </ion-col>
+      <ion-col>
+        Name
+      </ion-col>
+      <ion-col>
+        Delete
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of row_data">
+      <ion-col>
+        {{item.pid}}
+      </ion-col>
+      <ion-col>
+        {{item.Name}}
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="deleteRow(item)" size="small" color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-bottom-drawer
+  style="box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px -4px 8px rgba(0, 0, 0, 0.04), 0px -12px 32px rgba(0, 0, 0, 0.04);"
+  [(state)]="drawerState" [minimumHeight]="minimumHeight" [dockedHeight]="dockedHeight" [shouldBounce]="shouldBounce"
+  [distanceTop]="distanceTop">
+  <div class="drawer-content">
+    <ion-title>Registrar</ion-title>
+
+    <form action="">
+
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime display-format="YYYY-MM-DD" max="2100-12-31"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Proyectos</ion-label>
+        <ion-select>
+          <ion-select-option *ngFor="let p of proyectos"> {{ p.Proyecto }} </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Actividades</ion-label>
+        <ion-select>
+          <ion-select-option *ngFor="let a of actividades"> {{ a.Actividad }} </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium" position="floating">Description</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium" position="floating">Tiempo</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-button>
+        <ion-icon slot="icon-only" name="save"></ion-icon>
+      </ion-button>
+    </form>
+  </div>
+</ion-bottom-drawer>

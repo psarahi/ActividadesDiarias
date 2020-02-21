@@ -28,8 +28,8 @@ export class Tab1Page implements OnInit {
   databaseObj: SQLiteObject;
   name_model: string = '';
   row_data: any = [];
-  readonly database_name: string = 'freaky_datatable.db';
-  readonly table_name: string = 'myfreakytable';
+  readonly database_name: string = 'test.db';
+  readonly table_name: string = 'tableTest';
 
   constructor(
     private storage: Storage,
@@ -75,7 +75,7 @@ export class Tab1Page implements OnInit {
       location: 'default'
     }).then((db: SQLiteObject) => {
       this.databaseObj = db;
-      alert('freaky_datatable Database Created!');
+      alert('test Database Created!');
     })
       .catch(e => {
         alert("error " + JSON.stringify(e))

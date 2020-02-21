@@ -17,6 +17,8 @@ import { IonBottomDrawerModule } from 'ion-bottom-drawer';
 
 import { SQLite } from '@ionic-native/sqlite/ngx';
 
+import { AuthGuard } from './Modelos/auth.guard';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +34,7 @@ import { SQLite } from '@ionic-native/sqlite/ngx';
     StatusBar,
     IonBottomDrawerModule,
     SQLite,
+    AuthGuard,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

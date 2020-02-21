@@ -4,6 +4,7 @@ import { DataService } from '../services/data.service';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { ActividadesDiarias } from '../Modelos/actividadesDiarias';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,12 @@ export class LoginPage implements OnInit {
   password: any;
   existe: ActividadesDiarias[] = [];
 
-  constructor(private route: Router,
+  constructor(
+    private route: Router,
     private dataService: DataService,
     private alertCtrl: AlertController,
+    private storage: Storage,
+
     private toastCtrl: ToastController) { }
 
   ngOnInit() {
@@ -39,7 +43,7 @@ export class LoginPage implements OnInit {
   async presentToast() {
     const toast = await this.toastCtrl.create({
       message: 'Bienvenido!!!!',
-      duration: 4000,
+      duration: 3000,
       position: 'top',
       color: 'success'
     });
@@ -54,6 +58,8 @@ export class LoginPage implements OnInit {
         this.existe = res;
 
         if (this.existe.length > 0) {
+          this.storage.set('isLoggedIn', 'true');
+          this.storage.set('userLogin', this.existe);
           this.presentToast();
           this.route.navigate(['tabsGroup/tabs/tab1']);
 

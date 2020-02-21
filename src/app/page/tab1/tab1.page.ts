@@ -36,7 +36,7 @@ export class Tab1Page implements OnInit {
     private dataService: DatalocalService,
     private platform: Platform,
     private sqlite: SQLite
-  ) { 
+  ) {
     this.platform.ready().then(() => {
       this.createBaseDatos();
     }).catch(error => {
